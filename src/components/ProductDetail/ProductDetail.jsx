@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-const ProductDetail = () => {
+const ProductDetail = ({ cart, setCart }) => {
   const { id } = useParams();
-  console.log(id);
 
   const [product, setProduct] = useState({});
   const [quantity, setQuantity] = useState(0);
@@ -18,6 +17,10 @@ const ProductDetail = () => {
 
     fetchProduct();
   });
+
+  const addToCart = () => {
+    setCart([...cart, product]);
+  };
 
   return (
     <div className="row">
@@ -54,7 +57,9 @@ const ProductDetail = () => {
             +
           </button>
         </div>
-        <button className="btn btn-secondary">Add to Cart</button>
+        <button className="btn btn-secondary" onClick={addToCart}>
+          Add to Cart
+        </button>
       </div>
     </div>
   );
