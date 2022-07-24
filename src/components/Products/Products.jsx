@@ -15,11 +15,13 @@ const Products = () => {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       Products
-      {products.map((product, index) => {
-        return <Product product={product} />;
-      })}
+      <div className="d-flex flex-wrap gap-3">
+        {products.map((product, index) => {
+          return <Product product={product} />;
+        })}
+      </div>
     </div>
   );
 };
