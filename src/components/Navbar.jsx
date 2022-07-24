@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ cart }) => {
   return (
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
       <div class="container-fluid">
@@ -27,8 +27,8 @@ const Navbar = () => {
               </Link>
             </li>
             <li class="nav-item">
-              <Link to="/cart" class="nav-link">
-                Cart
+              <Link to="/cart" class="nav-link active" aria-current="page">
+                Cart ({cart.length})
               </Link>
             </li>
           </ul>
