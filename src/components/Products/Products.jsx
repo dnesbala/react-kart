@@ -16,7 +16,7 @@ const Products = () => {
 
   return (
     <div className="container">
-      Products
+      <h4>Products</h4>
       <div className="d-flex flex-wrap gap-3">
         {products.map((product, index) => {
           return <Product product={product} />;

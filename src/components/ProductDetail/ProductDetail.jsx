@@ -23,7 +23,10 @@ const ProductDetail = ({ cart, setCart }) => {
   };
 
   return (
-    <div className="row">
+    <div
+      className="container d-flex align-items-center justify-content-center"
+      style={{ height: "90vh" }}
+    >
       <div className="col-md-4">
         <img src={product.image} className="w-75" alt="..." />
       </div>
