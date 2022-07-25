@@ -5,7 +5,7 @@ const ProductDetail = ({ cart, setCart }) => {
   const { id } = useParams();
 
   const [product, setProduct] = useState({});
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -19,7 +19,22 @@ const ProductDetail = ({ cart, setCart }) => {
   });
 
   const addToCart = () => {
-    setCart([...cart, product]);
+    const exists =
+      cart.length !== 0 && cart.find((item) => item.id === product.id);
+    console.log(exists);
+
+    if (exists) {
+      setCart(
+        cart.map((item) =>
+          item.id === product.id
+            ? { ...exists, quantity: exists.quantity + quantity }
+            : item
+        )
+      );
+    } else {
+      const newProduct = { ...product, quantity: quantity };
+      setCart([...cart, newProduct]);
+    }
   };
 
   return (

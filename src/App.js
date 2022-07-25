@@ -9,8 +9,6 @@ import Cart from "./components/Cart/Cart";
 function App() {
   const [cart, setCart] = useState([]);
 
-  console.log(cart);
-
   return (
     <BrowserRouter>
       <Navbar cart={cart} />
@@ -20,7 +18,7 @@ function App() {
           path="/products/:id"
           element={<ProductDetail cart={cart} setCart={setCart} />}
         />
-        <Route path="/cart" element={<Cart cart={cart} />} />
+        <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
       </Routes>
     </BrowserRouter>
   );
